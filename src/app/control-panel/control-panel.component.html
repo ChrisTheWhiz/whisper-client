@@ -1,0 +1,64 @@
+<div class="wrapper">
+  <div class="section-wrapper station-editor">
+    <app-station-editor *ngIf="currentStation" [station]="currentStation"></app-station-editor>
+  </div>
+  <div class="section-wrapper">
+    <mat-accordion multi="true">
+      <mat-expansion-panel *ngFor="let station of getStationsAsArray()" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{station.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            <span>{{station.now_playing}}</span>
+            <span>{{station.genre}}</span>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="mat-expansion-details">
+          <span>{{station.mount}}</span>
+          <span class="separator"></span>
+          <button mat-icon-button (click)="toggleMute()">
+            <mat-icon *ngIf="volume > 0">volume_up</mat-icon>
+            <mat-icon *ngIf="volume === 0">volume_off</mat-icon>
+          </button>
+          <mat-slider min="0" max="1" step="0.02" [value]="volume" (change)="setVolume($event.value)"></mat-slider>
+          <button mat-button class="select-stream" (click)="setNewCurrentStation(station)">Select
+          </button>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Start another station
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="mat-expansion-details creation-form">
+          <form (ngSubmit)="createStation($event)" #stationForm="ngForm">
+            <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input matInput [(ngModel)]="newStationForm.stationName" name="stationName" placeholder="Symphonic Prog">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Query</mat-label>
+              <input matInput [(ngModel)]="newStationForm.query" name="query" placeholder="Bacamarte">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Genre</mat-label>
+              <input matInput [(ngModel)]="newStationForm.genre" name="genre" placeholder="Progressive Rock">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Mount</mat-label>
+              <input matInput [(ngModel)]="newStationForm.mount" name="mount" placeholder="/prog">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Description</mat-label>
+              <textarea matInput [(ngModel)]="newStationForm.description" name="description" placeholder="A station with symphonic progressive rock, the likes of which we find in in Yes, Bacamarte, Teru's Symphony">
+              </textarea>
+            </mat-form-field>
+            <button mat-raised-button type="submit">Start</button>
+          </form>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+.wrapper {
+  height: calc(95vh - 3rem);
+
+  > * {
+    margin-bottom: 2rem;
+  }
+
+  > .queue-wrapper {
+    margin-bottom: 0;
+  }
+
+  .actions {
+    margin-top: 1rem;
+  }
+}
+
+mat-list {
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  width: max-content;
+
+  .identifier {
+    color: #989898;
+    margin-right: 2rem;
+  }
+}
+
+form {
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.queue {
+  border: 1px solid #d3d3d3;
+  padding-left: 0.5rem;
+
+  cdk-virtual-scroll-viewport {
+    height: 50vh;
+
+    .queued-song {
+      height: 3rem;
+      margin-top: 0.3rem;
+      margin-right: 0.5rem;
+      border-bottom: 1px solid #d3d3d3;
+    }
+  }
+}

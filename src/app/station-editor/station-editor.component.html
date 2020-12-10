@@ -1,0 +1,35 @@
+<div class="wrapper">
+  <div class="info">
+    <mat-list *ngIf="currentSong">
+      <mat-list-item class="artist"><span class="identifier">Title</span>{{currentSong.title}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="album"><span class="identifier">Album</span>{{currentSong.album}}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item class="title"><span class="identifier">Artist</span>{{currentSong.artist}}</mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </div>
+  <div class="actions">
+      <button mat-raised-button (click)="removeStation()">Drop station</button>
+  </div>
+  <form (ngSubmit)="addToStationQueue($event)" #queryForm="ngForm">
+    <mat-form-field>
+      <mat-label>Query to queue</mat-label>
+      <input matInput [(ngModel)]="queueQuery" name="queueQuery" placeholder="depois do fim">
+    </mat-form-field>
+    <button mat-raised-button type="submit">Add query to queue</button>
+  </form>
+  <div class="queue-wrapper">
+    <div class="queue">
+      <cdk-virtual-scroll-viewport itemSize="40">
+        <div *cdkVirtualFor="let song of queue" class="queued-song">
+          {{ song.title }} - {{ song.album }}
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+    <div class="actions">
+      <button mat-raised-button (click)="skipSong()">Next song</button>
+      <button mat-raised-button (click)="clearStationQueue()">Clear queue</button>
+    </div>
+  </div>
+</div>

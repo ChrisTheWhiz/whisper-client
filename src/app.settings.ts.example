@@ -1,0 +1,11 @@
+export const productionEnv = {
+  radioBaseUrl: 'http://icecast.url.lol:8000',
+  apiBaseUrl: 'http://backend.server.address.lol:8001',
+  socketUrl: 'ws://backend.server.address.lol:8001/station/status',
+};
+
+export const developmentEnv = {
+  radioBaseUrl: 'http://icecast.url.lol:8000',
+  apiBaseUrl: 'http://backend.server.address.lol:8001',
+  socketUrl: 'ws://backend.server.address.lol:8001/station/status',
+};

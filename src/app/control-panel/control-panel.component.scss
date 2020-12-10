@@ -1,0 +1,56 @@
+.wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  .section-wrapper {
+    width: calc(50% - 2rem);
+    margin: 1rem;
+  }
+
+
+  @media only screen and (max-width: 899px) {
+    .section-wrapper.station-editor {
+      order: 1;
+    }
+
+    flex-flow: column nowrap;
+  }
+}
+
+mat-panel-description {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+
+  *:first-of-type {
+    margin-right: 1rem;
+  }
+}
+
+.mat-expansion-details {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-right: 2rem;
+
+  .separator {
+    flex-grow: 1;
+  }
+
+  &.creation-form {
+    form {
+      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+    button {
+      width: max-content;
+    }
+  }
+
+  mat-slider {
+    width: 14rem;
+  }
+}
