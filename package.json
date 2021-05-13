@@ -22,6 +22,7 @@
     "@angular/platform-browser": "^10.2.3",
     "@angular/platform-browser-dynamic": "^10.2.3",
     "@angular/router": "^10.2.3",
+    "cors-anywhere": "^0.4.4",
     "moment": "^2.29.1",
     "node-internet-radio": "^0.2.1",
     "rxjs": "~6.6.0",
@@ -31,7 +32,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1002.0",
-    "@angular/cli": "~10.2.0",
+    "@angular/cli": "^10.2.3",
     "@angular/compiler-cli": "^10.2.3",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",

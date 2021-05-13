@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "music-man-client": {
+    "whisper-client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,8 +17,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "baseHref": "/client/",
-            "outputPath": "dist/music-man-client",
+            "baseHref": "/",
+            "outputPath": "dist/whisper-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "music-man-client:build"
+            "browserTarget": "whisper-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "music-man-client:build:production"
+              "browserTarget": "whisper-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "music-man-client:build"
+            "browserTarget": "whisper-client:build"
           }
         },
         "test": {
@@ -117,16 +117,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "music-man-client:serve"
+            "devServerTarget": "whisper-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "music-man-client:serve:production"
+              "devServerTarget": "whisper-client:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "music-man-client"
+  "defaultProject": "whisper-client"
 }

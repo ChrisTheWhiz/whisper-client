@@ -49,7 +49,7 @@ export class ApiCommService {
     params = params.append('name', stationName);
     // page_size = 0 means no paging, return all songs in queue
     params = params.append('page_size', '0');
-    return this.httpClient.get<{ status: string, data: Song[] }>(environment.apiBaseUrl + '/queue', {params})
+    return this.httpClient.get<{ status: string, data: Song[] }>(environment.apiBaseUrl + '/queue/', {params})
       .pipe(
         map(response => response.data)
       );
@@ -61,18 +61,18 @@ export class ApiCommService {
     if (query !== '') {
       params = params.append('query', query);
     }
-    return this.httpClient.put<any>(environment.apiBaseUrl + '/queue', null, {params});
+    return this.httpClient.put<any>(environment.apiBaseUrl + '/queue/', null, {params});
   }
 
   clearStationQueue(stationName: string): Observable<any> {
     let params = new HttpParams();
     params = params.append('name', stationName);
-    return this.httpClient.delete<any>(environment.apiBaseUrl + '/queue', {params});
+    return this.httpClient.delete<any>(environment.apiBaseUrl + '/queue/', {params});
   }
 
   removeStation(stationName: string): Observable<any> {
     let params = new HttpParams();
     params = params.append('name', stationName);
-    return this.httpClient.delete<any>(environment.apiBaseUrl + '/station', {params});
+    return this.httpClient.delete<any>(environment.apiBaseUrl + '/station/', {params});
   }
 }
